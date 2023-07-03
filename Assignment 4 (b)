@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Enter your name:"
+read name
+
+for((i=${#name};i>0;i--))
+do
+
+  echo "${name:0:i}"
+
+
+done
