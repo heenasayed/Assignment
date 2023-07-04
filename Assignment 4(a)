@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Enter the name: "
+read name
+
+
+output:
+Enter the name: 
+Deshu
