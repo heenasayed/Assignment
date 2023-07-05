@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo "Enter the name:"
+read name
+
+string=$name
+j=1
+whitespace='    '
+for((i=${#string}; i>0; i-=2))
+do
+        string="${string:1:i-2}"
+echo "${whitespace:0:j}""$string"
+
+j=$j+1
+done
+
+Output:
+
+Enter the name:
+deshashri
+ eshashr
+  shash
+   has
+    a
