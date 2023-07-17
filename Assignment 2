@@ -1,6 +1,6 @@
 #!/bin/bash
 
-       #Instakking docker
+       #Installing docker
        echo "**INSTALLING DOCKER**"
        sudo dnf -y install docker
        sudo dnf upgrade --releasever=2023.1.20230705
