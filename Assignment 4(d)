@@ -55,7 +55,8 @@ echo "${whitespace:0:$a}""$name1""$name3"
     name=$name1$name3
     a=$a+1
 done
-              
+
+
       
 Enter the name :
 deshashri
