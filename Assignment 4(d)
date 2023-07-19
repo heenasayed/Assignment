@@ -1,68 +1,65 @@
 #!/bin/bash
 
-echo "Enter the name :"
-read string
+echo "Enter the name: "
+read name
 
 whitespace='                          '
 recurse(){
-if [[ $string =~ [A-Z] && $string =~ ^[[:upper:]]+$ ]]
-then
-string=$(echo $string | tr [:upper:] [:lower:])
-elif [[ $string =~ [a-z] ]]
-then
+  if [[ $name =~ [A-Z] && $name =~ ^[[:upper:]]+$ ]]
+  then
+    name=$(echo $name | tr [:upper:] [:lower:])
+    elif [[ $name =~ [a-z] ]]
+  then
 
-echo "Enter the name in upper case only:" 
-read string
+echo "Enter the name in Upper Case: "
+read name
 
 recurse
 fi
 }
 recurse
-string1=$string
-for((i=${#string1};i>1;i-=1))
+name1=$name
+for((i=${#name1};i>1;i-=1))
+  do
+  if [[ $i == ${#name1} ]]
+  then
+    name2="${name1:i-1:1}"
+  echo "${whitespace:0:i-1}""$name2"
+  else
+    name2="${name1:i-1:(${#name1}+1)}"
+  for((b=${#name2};b>1;b-=1))
+  do
+    name3="${name2:b-2:1}"
+    name4=$name4$name3
+done
+  echo "${whitespace:0:i-1}""$name2""$name4"
+  fi
+    name4=""
+done
+a=0
+for((i=${#name};i>0;i-=1))
 do
-if [[ $i == ${#string1} ]]
-then
-string4="${string1:i-1:1}"
-echo "${whitespace:0:i-1}""$string4"
+    name3=""
+  if [[ $i == ${#name} ]]
+  then
+    name1="${name:0:i}"
+for((j=${#name1};j>1;j-=1))
+do
+    name2="${name1:j-2:1}"
+    name3=$name3$name2
+done
 else
-string4="${string1:i-1:(${#string1}+1)}"
-for((p=${#string4};p>1;p-=1))
-do
-string5="${string4:p-2:1}"
-string6=$string6$string5
-done
-echo "${whitespace:0:i-1}""$string4""$string6"
+    name1="${name:1:(${#name}-2)}"
 fi
-string6=""
+echo "${whitespace:0:$a}""$name1""$name3"
+    name=$name1$name3
+    a=$a+1
 done
-k=0
-for((i=${#string};i>0;i-=1))
-do
-        string3=""
-        if [[ $i == ${#string} ]]
-        then
-                string1="${string:0:i}"
- then
-                string1="${string:0:i}"
-                for((j=${#string1};j>1;j-=1))
-                do
-                        string2="${string1:j-2:1}"
-                        string3=$string3$string2
-                done
-        else
-                string1="${string:1:(${#string}-2)}"
-        fi
-        echo "${whitespace:0:$k}""$string1""$string3"
-        string=$string1$string3
-        k=$k+1
-done
-
-Output:
-
+              
+      
 Enter the name :
 deshashri
-Enter the name in upper case only:
+Enter the name in Upper Case:
 DESHASHRI
         i
        rir
