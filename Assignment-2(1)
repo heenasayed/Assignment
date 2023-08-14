@@ -1,0 +1,45 @@
+#!/usr/bin/bash
+if [ -f "/etc/os-release" ]
+then
+source "/etc/os-release"
+echo "Operating System: $NAME"
+echo "Version: $VERSION"
+if [[ "$NAME" == *"Linux"* ]]
+then
+echo "The OS is $NAME"
+exitCode=$?
+if [ $exitCode != 0 ]
+then
+echo "************Failed to install minikube*****************"
+exit 1
+else
+echo "************Successfully installed minikube*************"
+fi
+fi
+if [[ "$NAME" == *"macOS"* ]]
+then
+echo "The OS is $NAME"
+exitCode=$?
+if [ $exitCode != 0 ]
+then
+echo "*********Failed to install minikube**********"
+exit 1
+else
+echo "****Successfully installed minikube****"
+fi
+fi
+if [[ "$NAME" == *"Windows"* ]]
+then
+echo "The OS is $NAME"
+exitCode=$?
+if [ $exitCode != 0 ]
+then
+echo "*********Failed to install minikube***************"
+exit 1
+else
+echo "****Successfully installed minikube****"
+fi
+fi
+else
+echo "Not able to detect Operating System."
+fi
